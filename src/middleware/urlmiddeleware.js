@@ -1,8 +1,9 @@
 import { getStats, saveStats } from '../util/statsUtils';
 
 const saveInFile = (id) => {
+  const urlBase= process.env.URL_BASE;
   const stats = getStats();
-  const event = `${id}`;
+  const event = `${urlBase}${id}`;
   stats[event] = stats[event] ? stats[event] + 1 : 1;
   saveStats(stats);
 };

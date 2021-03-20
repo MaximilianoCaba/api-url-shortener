@@ -7,6 +7,10 @@ const getStats = () => {
     result = JSON.parse(fs.readFileSync(FILE_PATH));
   } catch (err) {
     console.error(err);
+    fs.appendFile(FILE_PATH, '', function (err) {
+      if (err) throw err;
+      console.log('Saved!');
+    });
   }
   return result;
 };
